@@ -1,0 +1,11 @@
+extends base.pug
+block isi
+  form
+    .form-group
+      input.form-control.judul(placeholder="Judulnya" required)
+    .form-group
+      textarea.form-control.isi(placeholder="Isinya")
+    .form-group
+      input.btn.btn-dark(type="submit" value="Tambah")
+block js
+  include:uglify-js:coffee-script(bare=true) tambah.coffee

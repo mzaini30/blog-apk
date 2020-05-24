@@ -1,0 +1,7 @@
+.link 
+  cursor pointer
+  user-select none
+.full
+  width 100%
+body 
+  padding-bottom 70px

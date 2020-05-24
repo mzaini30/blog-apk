@@ -1,0 +1,11 @@
+extends base.pug
+block isi
+  h1 {{ judul }}
+  p: em {{ tanggal }}
+  div(v-html="isi")
+  .form-group
+    a.btn.btn-dark(href="edit.html") Edit
+    | &nbsp;
+    a.btn.btn-dark(@click="hapus") Hapus
+block js
+  include:uglify-js:coffee-script(bare=true) baca.coffee

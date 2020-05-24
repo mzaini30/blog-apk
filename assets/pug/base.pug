@@ -1,0 +1,35 @@
+mixin css(x)
+  link(rel="stylesheet" href=`vendor/${x}`)
+mixin js(x)
+  script(src=`vendor/${x}`)
+doctype html
+html
+  head
+    title Blog
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    +css("bootstrap.min.css")
+    style
+      include:uglify-css:stylus base.stylus
+      block css
+  body.bg-secondary.text-white
+    .vue
+      .navbar.fixed-top.bg-dark.navbar-dark.navbar-expand-md
+        a.navbar-brand(href="index.html") Blog
+        .navbar-toggler(data-toggle="collapse" data-target="#menu")
+          .navbar-toggler-icon
+        .collapse.navbar-collapse#menu
+          .navbar-nav
+            .nav-item: a.nav-link(href="tambah.html") Tambah
+            .nav-item: a.nav-link(href="https://instagram.com/kumpulan.apk") Aplikasi lainnya
+      .container
+        block isi
+    +js("jquery.min.js")
+    +js("bootstrap.min.js")
+    +js("dexie.min.js")
+    +js("vue.min.js")
+    +js("marked.min.js")
+    +js("swal.min.js")
+    script
+      include:uglify-js:coffee-script(bare=true) base.coffee
+      block js

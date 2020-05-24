@@ -1,0 +1,17 @@
+extends base.pug
+block isi
+  .form-group
+    .btn.btn-dark(@click="acak") Acak
+    | &nbsp;
+    a.btn.btn-dark(href="index.html") Urutkan
+  div(v-for="x in postingan")
+    .link(@click="buka(x.id)")
+      h1 {{ x.judul }}
+      p {{ x.isi | snippet }}
+  .navbar.fixed-bottom.bg-dark.navbar-dark
+    form.full(@submit.prevent="mulai_cari")
+      input.form-control(placeholder="Cari apa?" required v-model="cari" type="search")
+block js
+  include:uglify-js:coffee-script(bare=true) index.coffee
+block css
+  include:uglify-css:stylus index.stylus
